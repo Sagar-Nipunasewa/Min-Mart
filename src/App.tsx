@@ -1,10 +1,18 @@
+import {Route, Routes} from "react-router-dom";
+import Login from "./_auth/Login";
+import Home from "./_root/pages/Home";
 
 function App() {
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-200 p-24">
-      hello
-    </div>
+    <main className="flex min-h-screen ">
+        <Routes>
+            <Route path={"login"} element={<Login/>} />
+
+            <Route index element={<Home/>} />
+        </Routes>
+    </main>
+
   );
 }
 
