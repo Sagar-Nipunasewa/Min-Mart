@@ -19,25 +19,27 @@ function FormInputItem({
       rules={[{ required, message }]}
       className={formInputItemVariants()}
     >
-      {!isEmpty(text) && <Label text={text} />}
-      {type === "email" || type === "text" ? (
-        <Input
-          size={"large"}
-          type={type}
-          placeholder={placeholder}
-          autoComplete={autoComplete}
-          className={inputFieldVariants()}
-        />
-      ) : null}
-      {type === "password" ? (
-        <Input.Password
-          size={"large"}
-          type={type}
-          placeholder={placeholder}
-          autoComplete={autoComplete}
-          className={inputFieldVariants()}
-        />
-      ) : null}
+      <div>
+        {!isEmpty(text) && <Label text={text} />}
+        {type === "email" || type === "text" ? (
+            <Input
+                size={"large"}
+                type={type}
+                placeholder={placeholder}
+                autoComplete={autoComplete}
+                className={inputFieldVariants()}
+            />
+        ) : null}
+        {type === "password" ? (
+            <Input.Password
+                size={"large"}
+                type={type}
+                placeholder={placeholder}
+                autoComplete={autoComplete}
+                className={inputFieldVariants()}
+            />
+        ) : null}
+      </div>
     </Form.Item>
   );
 }
