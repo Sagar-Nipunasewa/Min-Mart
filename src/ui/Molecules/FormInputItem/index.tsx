@@ -1,44 +1,57 @@
 import { Form, Input } from "antd";
 import { formInputItemVariants, inputFieldVariants } from "./styles.ts";
-import { type FormInputProps } from "../../../types";
+import type {FormInputItemProps, TextAreaProps} from "../../../types";
 import { Label } from "../../Atoms";
-import { isEmpty } from "../../../utils";
+import { isEmpty,isTextArea } from "../../../utils";
 
 function FormInputItem({
   name,
   required,
   message,
-  type,
-  placeholder,
-  autoComplete,
+    type,
   label: text,
-}: FormInputProps) {
+    rootStyle,
+    style,
+    labelClassName,
+    placeholder,
+    autoComplete,
+    size,
+}: FormInputItemProps) {
+    let arg : TextAreaProps ;
   return (
     <Form.Item
       name={name}
       rules={[{ required, message }]}
       className={formInputItemVariants()}
+      style={rootStyle}
     >
       <div>
-        {!isEmpty(text) && <Label text={text} />}
-        {type === "email" || type === "text" ? (
+        {!isEmpty(text) && <Label labelClassName={labelClassName}  text={text} />}
+        {type === "email" || type === "text"  ? (
             <Input
-                size={"large"}
+                size={size}
                 type={type}
                 placeholder={placeholder}
                 autoComplete={autoComplete}
                 className={inputFieldVariants()}
+                style={style}
             />
         ) : null}
         {type === "password" ? (
             <Input.Password
-                size={"large"}
+                size={size}
                 type={type}
                 placeholder={placeholder}
                 autoComplete={autoComplete}
                 className={inputFieldVariants()}
+                style={style}
             />
         ) : null}
+        {
+          type === "textarea" && isTextArea( arg = {type: "textarea"}  ) ? (
+              <Input.TextArea className={inputFieldVariants()} style={style} size={size} rows={arg.rows} cols={arg.cols}  placeholder={placeholder} autoComplete={autoComplete} />
+          ) : null
+        }
       </div>
     </Form.Item>
   );

@@ -5,4 +5,5 @@ type LabelVariants = VariantProps<typeof labelVariants>;
 
 export interface LabelVariantsProps extends LabelVariants {
   text: string;
+  labelClassName?: string;
 }
