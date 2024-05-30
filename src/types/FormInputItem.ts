@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface FormProps {
   style?: React.CSSProperties;
@@ -8,10 +8,9 @@ interface FormProps {
   required?: boolean;
   message?: string;
   label?: string;
-  placeholder: string;
-  autoComplete: string;
-  size?: "large" | "middle" | "small";
-  inputClassName?: string;
+    placeholder: string;
+    autoComplete?: string;
+    size?: "large" | "middle" | "small";
 }
 
 interface InputProps {
