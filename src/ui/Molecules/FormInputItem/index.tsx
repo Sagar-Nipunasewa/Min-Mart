@@ -1,44 +1,57 @@
 import { Form, Input } from "antd";
-import { formInputItemVariants, inputFieldVariants } from "./styles.ts";
-import { type FormInputProps } from "../../../types";
+import type {FormInputItemProps, TextAreaProps} from "../../../types";
 import { Label } from "../../Atoms";
-import { isEmpty } from "../../../utils";
+import { isEmpty,isTextArea } from "../../../utils";
 
 function FormInputItem({
   name,
   required,
   message,
-  type,
-  placeholder,
-  autoComplete,
+    type,
   label: text,
-}: FormInputProps) {
+    rootStyle,
+    style,
+    labelClassName,
+    placeholder,
+    autoComplete,
+    size,
+}: FormInputItemProps) {
+  //To-do: Fix the usage of arg
+    const arg : TextAreaProps = {type: "textarea"};
   return (
     <Form.Item
       name={name}
       rules={[{ required, message }]}
-      className={formInputItemVariants()}
+      className="mb-[10px] md:mb-[14px]"
+      style={rootStyle}
     >
       <div>
-        {!isEmpty(text) && <Label text={text} />}
-        {type === "email" || type === "text" ? (
+        {!isEmpty(text) && <Label labelClassName={labelClassName}  text={text} />}
+        {type === "email" || type === "text"  ? (
             <Input
-                size={"large"}
+                size={size}
                 type={type}
                 placeholder={placeholder}
                 autoComplete={autoComplete}
-                className={inputFieldVariants()}
+                className="border border-gray-300 p-[5px] md:p-[7.5px] w-[360px] text-xs sm:text-sm md:text-base rounded "
+                style={style}
             />
         ) : null}
         {type === "password" ? (
             <Input.Password
-                size={"large"}
+                size={size}
                 type={type}
                 placeholder={placeholder}
                 autoComplete={autoComplete}
-                className={inputFieldVariants()}
+                className="border border-gray-300 p-[5px] md:p-[7.5px] w-[360px] text-xs sm:text-sm md:text-base rounded "
+                style={style}
             />
         ) : null}
+        {
+           isTextArea( {type} ) ? (
+              <Input.TextArea className="border border-gray-300 p-[5px] md:p-[7.5px] w-[360px] text-xs sm:text-sm md:text-base rounded " style={style} size={size} rows={arg.rows} cols={arg.cols}  placeholder={placeholder} autoComplete={autoComplete} />
+          ) : null
+        }
       </div>
     </Form.Item>
   );

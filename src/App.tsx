@@ -1,6 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import Login from "./_auth/Login";
-import {Home, ContactUs, ForgetPassword, PrivacyPolicy} from "./_root/pages";
+import {Home, ContactUs, ForgetPassword, PrivacyPolicy} from "./pages";
 
 function App() {
 

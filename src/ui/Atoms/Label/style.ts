@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const labelVariants = tv({
-  base: "text-sm text-gray-500 flex mb-[0.4rem]",
+  base: " text-sm text-gray-500 flex md:mb-[0.4rem]",
   variants: {
     size: {
       small: "text-xs",

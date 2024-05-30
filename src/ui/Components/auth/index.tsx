@@ -1,5 +1,4 @@
 import { Button, Form } from "antd";
-import { buttonVariants, rootLoginFormVariants } from "./styles.ts";
 import { type LoginFormValues } from "../../../types";
 import { FormInputItem } from "../../Molecules";
 
@@ -13,7 +12,7 @@ function LoginForm() {
       layout="vertical"
       name="login"
       onFinish={onFinish}
-      className={rootLoginFormVariants()}
+      className=" flex flex-col justify-center items-center"
     >
       <FormInputItem
         name="email"
@@ -35,7 +34,7 @@ function LoginForm() {
         htmlType="submit"
         size={"large"}
         type={"primary"}
-        className={buttonVariants()}
+        className="w-full text-[#fff] px-[30px] py-2.5 border-0 flex justify-center items-center my-[9px]"
       >
         Login
       </Button>
