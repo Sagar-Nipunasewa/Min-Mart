@@ -1,23 +1,24 @@
 import { Form, Input } from "antd";
 import { formInputItemVariants, inputFieldVariants } from "./styles.ts";
-import type {FormInputItemProps, TextAreaProps} from "../../../types";
+import type { FormInputItemProps, TextAreaProps } from "../../../types";
 import { Label } from "../../Atoms";
-import { isEmpty,isTextArea } from "../../../utils";
+import { isEmpty, isTextArea } from "../../../utils";
 
 function FormInputItem({
   name,
   required,
   message,
-    type,
+  type,
   label: text,
-    rootStyle,
-    style,
-    labelClassName,
-    placeholder,
-    autoComplete,
-    size,
+  rootStyle,
+  style,
+  labelClassName,
+  placeholder,
+  autoComplete,
+  size,
+  inputClassName,
 }: FormInputItemProps) {
-    let arg : TextAreaProps ;
+  let arg: TextAreaProps;
   return (
     <Form.Item
       name={name}
@@ -26,32 +27,40 @@ function FormInputItem({
       style={rootStyle}
     >
       <div>
-        {!isEmpty(text) && <Label labelClassName={labelClassName}  text={text} />}
-        {type === "email" || type === "text"  ? (
-            <Input
-                size={size}
-                type={type}
-                placeholder={placeholder}
-                autoComplete={autoComplete}
-                className={inputFieldVariants()}
-                style={style}
-            />
+        {!isEmpty(text) && (
+          <Label labelClassName={labelClassName} text={text} />
+        )}
+        {type === "email" || type === "text" ? (
+          <Input
+            size={size}
+            type={type}
+            placeholder={placeholder}
+            autoComplete={autoComplete}
+            className={inputFieldVariants({ className: inputClassName })}
+            style={style}
+          />
         ) : null}
         {type === "password" ? (
-            <Input.Password
-                size={size}
-                type={type}
-                placeholder={placeholder}
-                autoComplete={autoComplete}
-                className={inputFieldVariants()}
-                style={style}
-            />
+          <Input.Password
+            size={size}
+            type={type}
+            placeholder={placeholder}
+            autoComplete={autoComplete}
+            className={inputFieldVariants({ className: inputClassName })}
+            style={style}
+          />
         ) : null}
-        {
-          type === "textarea" && isTextArea( arg = {type: "textarea"}  ) ? (
-              <Input.TextArea className={inputFieldVariants()} style={style} size={size} rows={arg.rows} cols={arg.cols}  placeholder={placeholder} autoComplete={autoComplete} />
-          ) : null
-        }
+        {type === "textarea" && isTextArea((arg = { type: "textarea" })) ? (
+          <Input.TextArea
+            className={inputFieldVariants({ className: inputClassName })}
+            style={style}
+            size={size}
+            rows={arg.rows}
+            cols={arg.cols}
+            placeholder={placeholder}
+            autoComplete={autoComplete}
+          />
+        ) : null}
       </div>
     </Form.Item>
   );

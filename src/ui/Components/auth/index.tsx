@@ -21,6 +21,7 @@ function LoginForm() {
         message="Email is required"
         placeholder="example@example.com"
         type="email"
+        autoComplete="off"
         label={"Email*"}
       />
       <FormInputItem
@@ -29,6 +30,7 @@ function LoginForm() {
         message="Password is required"
         placeholder="Pasword"
         type="password"
+        autoComplete="off"
         label={"Password*"}
       />
       <Button
