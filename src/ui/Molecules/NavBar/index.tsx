@@ -6,19 +6,26 @@ import {Link} from "react-router-dom";
 import NotificationBell from "../../Atoms/NotificationBell";
 import type{NavBarProps} from "../../../types";
 import {AntdConfigProvider} from "../../utils";
+import type {CurrentScreen} from "../../../utils";
 
 
 function NavBar({userEmail,onClick} : NavBarProps) {
+  const currentScreen  = CurrentScreen();
+
+
     return (
         <Layout  >
             <Header className="bg-white h-14 border shadow-sm flex items-center justify-between px-5">
-              <Flex>
-                 <AntdConfigProvider buttonHoverBg="none" buttonHoverColor="none" buttonColor="black" buttonShadow="none" buttonHoverBorderColor="none" buttonBorderColor="none">
-                         <Button onClick={onClick} icon={<GiHamburgerMenu size={25}/>}/>
-                    </AntdConfigProvider>
-
-              </Flex>
-                <Flex align="center" justify="center"  >
+                <Flex align="center" gap={14}>
+                    <AntdConfigProvider buttonHoverBg="none" buttonHoverColor="none" buttonColor="black"
+                                        buttonShadow="none" buttonHoverBorderColor="none" buttonBorderColor="none">
+                        <Button onClick={onClick} icon={<GiHamburgerMenu size={25}/>}/>
+                        <p className="capitalize font-bold text-[20px]">
+                    {currentScreen}
+                </p>
+            </AntdConfigProvider>
+        </Flex>
+    <Flex align="center" justify="center"  >
                     <Flex dir="row" align="center">
                         <p className="hidden lg:block">{userEmail}</p>
                         <Gravatar
