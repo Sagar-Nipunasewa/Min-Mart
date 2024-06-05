@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import NotificationBell from "../../Atoms/NotificationBell";
 import type{NavBarProps} from "../../../types";
 import {AntdConfigProvider} from "../../utils";
-import type {CurrentScreen} from "../../../utils";
+import  {CurrentScreen} from "../../../utils";
 
 
 function NavBar({userEmail,onClick} : NavBarProps) {
