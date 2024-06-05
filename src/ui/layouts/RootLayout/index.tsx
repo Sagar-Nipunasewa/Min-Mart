@@ -4,6 +4,7 @@ import {Layout} from "antd";
 import {Content} from "antd/es/layout/layout";
 import {NavBar} from "../../Molecules";
 import {useState} from "react";
+import {Footer} from "../../Atoms";
 
 function RootLayout () {
     const [collapsed, setCollapsed] = useState(false);
@@ -15,13 +16,15 @@ function RootLayout () {
 
 
     return(
-        <Layout   >
+        <Layout>
                 <Sidebar  collapsed={collapsed}  />
-               <Content>
-                   <NavBar userEmail={userEmail} onClick={handleCollapse} />
-                   <Outlet/>
-               </Content>
-
+               <Layout >
+                   <Content>
+                       <NavBar userEmail={userEmail} onClick={handleCollapse} />
+                       <Outlet/>
+                   </Content>
+                       <Footer className="my-4" />
+               </Layout>
         </Layout>
     )
 }

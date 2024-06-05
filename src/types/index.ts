@@ -6,3 +6,4 @@ export * from "./CompanyLogo";
 export * from "./Sidebar";
 export * from "./AntdConfigProvider.ts";
 export  * from "./NavBar";
+export * from "./FooterProps";
