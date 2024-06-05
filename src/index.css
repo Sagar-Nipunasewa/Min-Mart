@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+{/*
+.ant-menu-item{
+    @apply text-white flex items-center my-[2px] transition-none rounded hover:bg-[#3C4D6F] !important;
+}
+
+.ant-menu-item-selected{
+   @apply bg-[#3C4D6F] rounded !important;
+}
+.ant-menu-title-content{
+    @apply ml-5 !important;
+}
+*/}
+
+
+.ant-menu-item-icon{
+    @apply h-[15px] w-[16px] !important;
+}
