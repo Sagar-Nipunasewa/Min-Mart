@@ -16,7 +16,6 @@ function FormInputItem({
   autoComplete,
   size,
 }: FormInputItemProps) {
-  //To-do: Fix the usage of arg
     const arg : TextAreaProps = {type:"textarea" ,rows: 0, cols: 0};
   return (
     <Form.Item

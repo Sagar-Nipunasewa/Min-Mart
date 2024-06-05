@@ -5,7 +5,7 @@ import {companyLogoSrc, SideBarMenu} from "../../../constants";
 import {FiLogOut} from "react-icons/fi";
 import {useLocation, useNavigate} from "react-router-dom";
 import {AntdConfigProvider} from "../../utils";
-import {SidebarProps} from "../../../types";
+import type{SidebarProps} from "../../../types";
 
 
 function Sidebar({collapsed}: SidebarProps) {

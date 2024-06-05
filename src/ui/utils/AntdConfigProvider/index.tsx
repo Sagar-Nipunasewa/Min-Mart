@@ -1,7 +1,7 @@
 import {ConfigProvider} from "antd";
 import {StyleProvider} from "@ant-design/cssinjs";
 import {PropsWithChildren} from "react";
-import {AntdConfigProviderProps} from "../../../types";
+import type{AntdConfigProviderProps} from "../../../types";
 
 export default function AntdConfigProvider({
                                                children,

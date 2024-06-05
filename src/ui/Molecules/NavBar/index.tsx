@@ -4,7 +4,7 @@ import {GiHamburgerMenu} from "react-icons/gi";
 import Gravatar from "react-gravatar";
 import {Link} from "react-router-dom";
 import NotificationBell from "../../Atoms/NotificationBell";
-import {NavBarProps} from "../../../types";
+import type{NavBarProps} from "../../../types";
 import {AntdConfigProvider} from "../../utils";
 
 
